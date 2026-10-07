@@ -1,0 +1,80 @@
+@layer reset, base, theme, components;
+
+@layer reset{
+    *, *::before, *::after{ box-sizing: border-box; }
+
+    h1, h2, h3, h4, h5, h6, p{
+        margin: 0;
+        font-size: inherit;
+        font-weight: normal;
+    }
+
+    a{ text-decoration: none;  color: inherit; &:hover{ text-decoration: underline; }}
+}
+
+@layer base{
+    @font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto-Regular.ttf');
+}
+
+    body{
+        margin: 0;
+        height: 100dvh;
+    }
+}
+
+
+
+.stack {
+    height: 9rem;
+    display: grid;
+    place-items: center; /* centers both children horizontally & vertically */
+}
+
+.locus,
+.review {
+    grid-area: 1 / 1; /* both occupy the same cell, so they overlap */
+    line-height: 1;
+}
+
+.locus {
+    display: grid;
+    place-items: center;
+    position: relative;
+    font-size: 6.6rem;
+    font-weight: bold;
+    text-transform:uppercase;
+    font-family: Roboto;
+    color: rgba(115, 136, 219, 1);
+}
+
+.review {
+    position: absolute;
+  
+    display: grid;
+    place-items: center;
+
+    font-size: 1rem;
+    font-family: "Roboto";
+    font-weight: 600;
+    letter-spacing: 42px;
+    text-align: center;
+    text-transform: uppercase;
+    /* text-shadow: 1px 0 1px rgba(42, 42, 42, 0.435); */
+    color: rgba(0, 0, 0, 80%);
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    padding-inline-start: 42px;
+    /* padding-inline-end: -42px; */
+    /* background-color: red; */
+    width: auto;
+    height: 2rem;
+    background: linear-gradient(
+        to right,
+        rgb(255 255 255 / 100%) 0%,
+        rgb(255 255 255 / 20%) 50%,
+        rgb(255 255 255 / 100%) 100%
+        );
+    z-index: 2;
+}
